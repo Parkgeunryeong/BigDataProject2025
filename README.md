@@ -30,22 +30,16 @@
 ###  물량 공세의 증거: DoS와 `count`
 - **분석:** 2초 내 동일 호스트 접속 시도 횟수(`count`)와 공격 확률의 상관관계 분석.
 - **인사이트:** 접속 시도가 **100회를 초과하는 순간 공격 확률이 100%에 도달**함. 이는 사람이 아닌 자동화된 봇(Bot)에 의한 물량 공세임을 증명.
-![Count Analysis](./images/count_analysis.png)
+![Count Analysis](./image/image_4.png)
 
-###  빈 껍데기 패킷: DoS/Probe와 `src_bytes`
-- **분석:** 공격 유형별 전송 데이터 크기(`src_bytes`) 분포 비교 (Log Scale).
-- **인사이트:** Normal 트래픽은 데이터 크기가 크고 다양한 반면, **DoS 및 정찰 공격은 0바이트에 가까운 빈 패킷**을 전송함.
-![Source Bytes Analysis](./images/src_bytes_boxplot.png)
+
 
 ###  정찰 행위의 패턴: Probe와 `srv_rate`
 - **분석:** 서비스 접근 패턴 산점도 (`same_srv_rate` vs `diff_srv_rate`).
 - **인사이트:** 정상 사용자는 특정 서비스를 지속 이용(집중)하지만, **Probe 공격자는 다수의 포트를 무작위로 탐색(분산)**하는 패턴이 뚜렷하게 분리됨.
-![Probe Scatter](./images/probe_scatter.png)
+![Probe Scatter](./image/image_5.png)
 
-###  공격 유형과 타겟 서비스
-- **분석:** 공격 유형별 공격 서비스
-- **인사이트:** Dos는 private나 ecr_i핑 서비스 집중, R2L은 파일 전송 서비스, U2R은 TELNET서비스 집중
-![Probe Scatter](./images/probe_scatter.png)
+
 
 
 
@@ -80,6 +74,7 @@
 
 ### 최종 결론
 본 프로젝트는 머신러닝이 네트워크 보안에 있어 **'보이지 않는 패턴'을 찾아내는 강력한 도구**임을 입증했습니다. 특히 TCP와 같이 정상과 공격이 혼재된 복잡한 트래픽 영역에서, 본 모델은 기존의 단순 규칙 기반탐지를 보완하는 효과적인 솔루션이 될 것입니다.
+  ![Probe Scatter](./image/image_6.png)
 
 ---
 
