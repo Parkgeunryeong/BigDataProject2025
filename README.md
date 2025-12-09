@@ -17,8 +17,10 @@
 데이터 분석을 통해 각 공격 유형을 구분 짓는 결정적인 행동 패턴(Signature)을 발견했습니다.
 ###  전체 공격 유형
 - **분석:** NSL-KDD 데이터 셋의 **전체 공격 유형**그래프
-- **인사이트:** 전체 공격 유형은 **Normal > Dos > Probe > R2L > U2R** 순 
-![Source Bytes Analysis](./image/image_1.png)
+- **인사이트:** 전체 공격 유형은 **Normal > Dos > Probe > R2L > U2R** 순
+
+  
+  ![Source Bytes Analysis](./image/image_1.png)
 
 ###  프로토콜 별 공격 유형
 - **분석:** 프로토콜 별  **공격확률**그래프
