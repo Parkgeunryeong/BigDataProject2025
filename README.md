@@ -20,12 +20,12 @@
 - **인사이트:** 전체 공격 유형은 **Normal > Dos > Probe > R2L > U2R** 순
 
   
-  ![Source Bytes Analysis](./image/image_1.png)
+  ![Source Bytes Analysis](./image/image_1.png) ![Source Bytes Analysis](./image/image_2.png)
 
 ###  프로토콜 별 공격 유형
 - **분석:** 프로토콜 별  **공격확률**그래프
 - **인사이트:** 전체 공격 유형은 **icmp가 가장 높은것으로 나타남** icmp, tcp에 대한 주의 필요 상대적으로 udp는 안전
-![Source Bytes Analysis](./images/src_bytes_boxplot.png)
+![Source Bytes Analysis](./image/image_3.png)
 
 ###  물량 공세의 증거: DoS와 `count`
 - **분석:** 2초 내 동일 호스트 접속 시도 횟수(`count`)와 공격 확률의 상관관계 분석.
