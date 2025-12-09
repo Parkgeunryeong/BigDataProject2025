@@ -13,9 +13,14 @@
 ---
 
 ## 📊 2. 데이터 분석 및 시각화 (Key Findings)
-데이터 분석을 통해 각 공격 유형을 구분 짓는 결정적인 행동 패턴(Signature)을 발견했습니다.
 
-### ① 물량 공세의 증거: DoS와 `count`
+데이터 분석을 통해 각 공격 유형을 구분 짓는 결정적인 행동 패턴(Signature)을 발견했습니다.
+### ① 천제 공격 유형
+- **분석:** NSL-KDD 데이터 셋의 **전체 공격 유형**
+- **인사이트:** 전체 공격 유형은 **Normal > Dos > Probe > R2L > U2R** 순 
+![Source Bytes Analysis](./images/src_bytes_boxplot.png)
+
+### ② 물량 공세의 증거: DoS와 `count`
 - **분석:** 2초 내 동일 호스트 접속 시도 횟수(`count`)와 공격 확률의 상관관계 분석.
 - **인사이트:** 접속 시도가 **100회를 초과하는 순간 공격 확률이 100%에 도달**함. 이는 사람이 아닌 자동화된 봇(Bot)에 의한 물량 공세임을 증명.
 ![Count Analysis](./images/count_analysis.png)
