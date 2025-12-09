@@ -16,27 +16,36 @@
 
 데이터 분석을 통해 각 공격 유형을 구분 짓는 결정적인 행동 패턴(Signature)을 발견했습니다.
 ###  전체 공격 유형
-- **분석:** NSL-KDD 데이터 셋의 **전체 공격 유형**
+- **분석:** NSL-KDD 데이터 셋의 **전체 공격 유형**그래프
 - **인사이트:** 전체 공격 유형은 **Normal > Dos > Probe > R2L > U2R** 순 
 ![Source Bytes Analysis](./images/src_bytes_boxplot.png)
 
-### ② 물량 공세의 증거: DoS와 `count`
+###  프로토콜 별 공격 유형
+- **분석:** 프로토콜 별  **공격확률**그래프
+- **인사이트:** 전체 공격 유형은 **icmp가 가장 높은것으로 나타남** icmp, tcp에 대한 주의 필요 상대적으로 udp는 안전
+![Source Bytes Analysis](./images/src_bytes_boxplot.png)
+
+###  물량 공세의 증거: DoS와 `count`
 - **분석:** 2초 내 동일 호스트 접속 시도 횟수(`count`)와 공격 확률의 상관관계 분석.
 - **인사이트:** 접속 시도가 **100회를 초과하는 순간 공격 확률이 100%에 도달**함. 이는 사람이 아닌 자동화된 봇(Bot)에 의한 물량 공세임을 증명.
 ![Count Analysis](./images/count_analysis.png)
 
-### ② 빈 껍데기 패킷: DoS/Probe와 `src_bytes`
+###  빈 껍데기 패킷: DoS/Probe와 `src_bytes`
 - **분석:** 공격 유형별 전송 데이터 크기(`src_bytes`) 분포 비교 (Log Scale).
 - **인사이트:** Normal 트래픽은 데이터 크기가 크고 다양한 반면, **DoS 및 정찰 공격은 0바이트에 가까운 빈 패킷**을 전송함.
 ![Source Bytes Analysis](./images/src_bytes_boxplot.png)
 
-### ③ 정찰 행위의 패턴: Probe와 `srv_rate`
+###  정찰 행위의 패턴: Probe와 `srv_rate`
 - **분석:** 서비스 접근 패턴 산점도 (`same_srv_rate` vs `diff_srv_rate`).
 - **인사이트:** 정상 사용자는 특정 서비스를 지속 이용(집중)하지만, **Probe 공격자는 다수의 포트를 무작위로 탐색(분산)**하는 패턴이 뚜렷하게 분리됨.
 ![Probe Scatter](./images/probe_scatter.png)
 
-### ④ 프로토콜 위험도 분석
-- **인사이트:** **ICMP 트래픽의 84.2%가 공격(Smurf 등)**으로 판명되어 가장 위험도가 높았으며, TCP는 정상과 공격이 혼재되어 정밀 탐지가 필요함을 확인.
+###  공격 유형과 타겟 서비스
+- **분석:** 공격 유형별 공격 서비스
+- **인사이트:** Dos는 private나 ecr_i핑 서비스 집중, R2L은 파일 전송 서비스, U2R은 TELNET서비스 집중
+![Probe Scatter](./images/probe_scatter.png)
+
+
 
 ---
 
